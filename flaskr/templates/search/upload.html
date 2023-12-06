@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!-- ファイルアップロード用 -->
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Posts{% endblock %}</h1>
+  {% if g.user %}
+    <a class="action" href="{{ url_for('blog.create') }}">New</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <form method="post" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <input type="submit" value="Upload">
+  </form>
+
+  <!-- <form method="post">
+    <label for="keyword">キーワード検索</label>
+    <input name="keyword" id="keyword" value="{{ request.form['keyword'] }}" required>
+    <input type="submit" value="検索">
+  </form>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>作成日</th>
+        <th>検索ワード</th>
+        <th>ランク</th>
+        <th>タイトル</th>
+        <th>URL</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for post in posts%}
+      <tr>
+          <td>{{ post[0] }}</td>
+          <td>{{ post[1] }}</td>
+          <td>{{ post[2] }}</td>
+          <td>{{ post[3] }}</td>
+          <td>{{ post[4] }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table> -->
+{% endblock %}
